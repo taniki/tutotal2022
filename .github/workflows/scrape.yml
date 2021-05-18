@@ -20,14 +20,13 @@ jobs:
       - name: install minet
         run: pip install minet
 
-      # Runs a set of commands using the runners shell
       - name: scrape tweets
         run: |
-          minet tw scrape tweets "from:@taniki #tutotal2022" > tweets.csv
+          minet tw scrape tweets "hello" > tweets.csv
 
-#       - name: archive results
-#         uses: actions/upload-artifact@v2
-#         with:
-#           name: tweets
-#           path: tweets.csv
+      - name: archive results
+        uses: actions/upload-artifact@v2
+        with:
+          name: tweets
+          path: tweets.csv
 
