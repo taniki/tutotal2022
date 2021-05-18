@@ -22,7 +22,8 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: scrape tweets
-        run: 'minet tw scrape tweets "from:@taniki #tutotal2022"'
+        run: |
+          minet tw scrape tweets "from:@taniki #tutotal2022" > tweets.csv
 
 #       - name: archive results
 #         uses: actions/upload-artifact@v2
