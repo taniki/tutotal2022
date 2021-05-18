@@ -28,7 +28,7 @@ jobs:
 
       - name: scrape tweets
         run: |
-          minet tw scrape tweets "hello" > tweets.csv
+          minet tw scrape tweets -o tweets.csv "from:@taniki #tutotal2022"
 
       - name: archive results
         uses: actions/upload-artifact@v2
