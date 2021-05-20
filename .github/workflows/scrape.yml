@@ -33,7 +33,7 @@ jobs:
       - name: scrape tweets
         shell: bash
         run: |
-          minet tw scrape tweets "from:@taniki #tutotal2022" -o tutotal2022-taniki.csv
+          minet tw scrape tweets "from:@taniki #tutotal2022" > tutotal2022-taniki.csv
 
       # - name: archive results
       #   uses: actions/upload-artifact@v2
@@ -43,4 +43,4 @@ jobs:
       - name: commit
         uses: ./.github/actions/commit
         with:
-          message: 🐦 "@taniki + \#tutotal2022"
+          message: 🐦 tutotal2022 + taniki
