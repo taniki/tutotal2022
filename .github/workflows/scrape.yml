@@ -33,7 +33,6 @@ jobs:
       - name: scrape tweets
         shell: bash
         run: |
-        # minet tw scrape tweets query query.csv -o tweets.csv
           minet tw scrape tweets "from:@taniki #tutotal2022" -o tweets.csv
 
       - name: archive results
