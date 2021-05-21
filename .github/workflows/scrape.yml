@@ -3,11 +3,15 @@ name: scrape tweets
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '0 5 * * *'
+    - cron:  '0 */2 * * *'
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        account: [ taniki,  stefw ]
 
     steps:
       - uses: actions/checkout@v2
@@ -22,9 +26,9 @@ jobs:
       - name: scrape tweets
         shell: bash
         run: |
-          minet tw scrape tweets "from:@taniki #tutotal2022" > tutotal2022-taniki.csv
+          minet tw scrape tweets "from:@${{ matrix.account }} #tutotal2022" > tutotal2022-${{ matrix.account }}.csv
 
       - name: commit
         uses: ./.github/actions/commit
         with:
-          message: 🐦 tutotal2022 + taniki
+          message: 🐦 tutotal2022 + ${{ matrix.account }}
